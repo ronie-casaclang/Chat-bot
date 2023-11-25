@@ -167,6 +167,18 @@ function scrollToBottom(){
   
 function btnClick(){
     if (document.getElementById('user-input').value.toLowerCase().trim() === ''){}
-    else sendMessage();
+    else
+    {
+      sendMessage();
+      document.getElementById('user-input').focus();
+    }
 }
 
+const input = document.getElementById('user-input');
+input.addEventListener("keydown", function(event){
+  if(event.key === 'Enter')
+  {
+    btnClick();
+    event.preventDefault();
+  }
+});
